@@ -6,6 +6,8 @@ function App() {
   const [error, setError] = useState(null);
   const [position, setPosition] = useState({});
 
+  const { lng, lat } = position;
+
   function getPosition() {
     setCountClicks((click) => click + 1);
 
@@ -35,6 +37,12 @@ function App() {
       <button onClick={getPosition} disabled={isLoading}>
         Get My Position
       </button>
+
+      {isLoading && <p>Loading your position...</p>}
+      {error && <p>{error}</p>}
+      {!error && !isLoading && lng && lat && <p>Your GPS position:</p>}
+
+      <p>You requested your position {countClicks} times.</p>
     </div>
   );
 }
