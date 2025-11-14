@@ -5,6 +5,19 @@ function App() {
   const [countClicks, setCountClicks] = useState(0);
   const [error, setError] = useState(null);
   const [position, setPosition] = useState({});
+
+  function getPosition() {
+    setCountClicks((click) => click + 1);
+
+    if (!navigator.geolocation) {
+      setError("Your browser does not support geolocation!");
+    }
+
+    setIsLoading(true);
+
+    navigator.geolocation.position((position) => {});
+  }
+
   return <div className="App"></div>;
 }
 
