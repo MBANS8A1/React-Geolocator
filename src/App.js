@@ -2,9 +2,14 @@ import { useState } from "react";
 import { useGeolocation } from "./useGeolocation";
 
 function App() {
-  const [countClicks, setCountClicks] = useState(0);
+  const {
+    error,
+    isLoading,
+    position: { lng, lat },
+    getPosition,
+  } = useGeolocation();
 
-  // const { lng, lat } = position;
+  const [countClicks, setCountClicks] = useState(0);
 
   function handleCountClicks() {
     setCountClicks((click) => click + 1);
