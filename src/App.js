@@ -13,6 +13,7 @@ function App() {
 
   function handleCountClicks() {
     setCountClicks((click) => click + 1);
+    getPosition();
   }
 
   return (
