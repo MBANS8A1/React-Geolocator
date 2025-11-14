@@ -30,7 +30,13 @@ function App() {
     );
   }
 
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <button onClick={getPosition} disabled={isLoading}>
+        Get My Position
+      </button>
+    </div>
+  );
 }
 
 export default App;
