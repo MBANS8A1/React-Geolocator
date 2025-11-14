@@ -40,7 +40,18 @@ function App() {
 
       {isLoading && <p>Loading your position...</p>}
       {error && <p>{error}</p>}
-      {!error && !isLoading && lng && lat && <p>Your GPS position:</p>}
+      {!error && !isLoading && lng && lat && (
+        <p>
+          Your GPS position:{" "}
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={`https://www.openstreetmap.org/#map=16/${lat}/${lng}`}
+          >
+            {lat}, {lng}
+          </a>
+        </p>
+      )}
 
       <p>You requested your position {countClicks} times.</p>
     </div>
