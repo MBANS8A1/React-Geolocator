@@ -6,9 +6,13 @@ function App() {
 
   // const { lng, lat } = position;
 
+  function handleCountClicks() {
+    setCountClicks((click) => click + 1);
+  }
+
   return (
     <div className="App">
-      <button onClick={getPosition} disabled={isLoading}>
+      <button onClick={handleCountClicks} disabled={isLoading}>
         Get My Position
       </button>
 
