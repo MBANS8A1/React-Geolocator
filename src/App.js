@@ -15,13 +15,19 @@ function App() {
 
     setIsLoading(true);
 
-    navigator.geolocation.getCurrentPosition((position) => {
-      setPosition({
-        lng: position.coords.longitude,
-        lat: position.coords.latitude,
-      });
-      setIsLoading(false);
-    });
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setPosition({
+          lng: position.coords.longitude,
+          lat: position.coords.latitude,
+        });
+        setIsLoading(false);
+      },
+      (error) => {
+        setError(error.message);
+        isLoading(false);
+      }
+    );
   }
 
   return <div className="App"></div>;
